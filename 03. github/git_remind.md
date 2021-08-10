@@ -19,7 +19,7 @@ git init
   -  untracked files:은 (working directory = work tree)영역에 생성됨을 말한다.
   - git log 탈출은 q 키
 
-### 2.2 저장소 작업
+### 2.2 저장소 작업(버젼관리)
 
 - git add [file name]
   - (working directory = work tree) 파일을 스테이지로 올린다.
