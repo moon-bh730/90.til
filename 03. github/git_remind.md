@@ -102,8 +102,6 @@ git remote -v
 
 
 
-
-
 ### 2.4 저장소 삭제하기
 
 레보지트리 삭제
@@ -115,28 +113,6 @@ git remote -v
 ## 3. 브랜치
 
 - 분기된 새로운 버전의 관리
-
-  
-
-## 4. 깃허브 백업관gi리
-
-## 5. 깃허브 협업
-
-## 6. 깃허브 이론
-
-- [(working directory = work tree)] - [스테이지] - [저장소]
-
-<img src="https://git-scm.com/book/en/v2/images/lifecycle.png" alt="파일의 라이프사이클." style="zoom: 67%;" />
-
-<img src="https://media.vlpt.us/images/janeljs/post/2654de26-d74b-4618-9a3c-96668a4e2a53/image.png" alt="Git의 기본 개념들 (1) (working directory, staging area, remote)" style="zoom: 67%;" />
-
-
-
-#### 6.1 스테이지와 커밋
-
-
-
-
 
 브랜치 생성
 
@@ -176,6 +152,25 @@ git  branch
 ```bash
 git branch -d [브랜치 이름]
 ```
+
+
+
+## 4. 깃허브 백업관리
+
+## 5. 깃허브 협업
+
+## 6. 깃허브 이론
+
+- [(working directory = work tree)] - [스테이지] - [저장소]
+
+<img src="https://git-scm.com/book/en/v2/images/lifecycle.png" alt="파일의 라이프사이클." style="zoom: 67%;" />
+
+<img src="https://media.vlpt.us/images/janeljs/post/2654de26-d74b-4618-9a3c-96668a4e2a53/image.png" alt="Git의 기본 개념들 (1) (working directory, staging area, remote)" style="zoom: 67%;" />
+
+
+
+#### 6.1 스테이지와 커밋
+
 
 
 
