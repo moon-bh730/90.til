@@ -19,7 +19,7 @@
 git init
 ```
 
-- init 명령은 감춰진 [.git] 폴더를 생성 한다
+- init 명령은 숨김 속성을 가진  [.git] 폴더를 생성 한다
 
 #### 2.1.2 깃 상태 명령어
 
@@ -60,24 +60,25 @@ git init
   
     
   
-- git commit -m [description]
+- commit, push, pull 이 명령들을 어떤 작업이라 해야할지?
 
   - 워킹영역과 스테이지에 한번에 올리는 명령
 
-  ```bash
-  git commit -am
-  ```
+    ```bash
+    #기본형
+    git commit -m [description]
+    
+    #워킹영역과 스테이지에 한번에 올리는 명령(add 안해도 되는건가? 한번 테스트 해볼것!!)
+    git commit -am
+    ```
 
-  - git push	: 올리기
+    
 
-  ```bash
-  git push
-  ```
-
-  - git pull	:내리기
+  - push, pull : 원격 레포에 올리고 가져오는 명령
 
     ```bash
-    git pull
+    git push	#올리기
+    git pull	#가져오기
     ```
 
     
@@ -90,7 +91,7 @@ git init
 git init [폴더명]
 ```
 
-#### 	2.3.2 원격 저장소 연결
+#### 	2.3.2 원격 저장소 연결(로컬과 원격을 연동하는것!! 현재 내가 제일 헷갈려 하는 부분 )
 
 ```bash
 # 저장소 연결
@@ -170,7 +171,6 @@ git branch -d [브랜치 이름]
 
 
 #### 6.1 스테이지와 커밋
-
 
 
 
