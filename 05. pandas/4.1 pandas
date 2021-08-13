@@ -32,3 +32,44 @@ import pandas as pd
 pd.Series(range(10, 14))
 ```
 
+
+
+## 5. 판다스 명령어
+
+### Append()
+
+> col의 조건식에 따른 개별적으로 값을 변경 한다.
+>
+> [컬럼명].append("[값]")
+
+
+
+### Apply()
+
+> col을 일괄적으로 추가하거나 값을 변경 할 수 있다.
+>
+> df.[컬럼명].apply([함수])
+
+```python
+```
+
+### fillna()
+
+>[배열].fillna("[채울 값]")
+>
+>값이 null/nan인 값을 "[채울 값]"로 바꾸어준다
+
+### isnull()
+
+> [배열].isnull()
+>
+> 배열의 각 값이 null/nan인 값을 False로 바꾸어준다
+
+
+
+### notnull()
+
+> [배열].notnull()
+>
+> 배열의 각 값이 null/nan이 아닌 값을 True로 바꾸어준다
+
