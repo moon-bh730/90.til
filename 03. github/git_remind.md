@@ -3,11 +3,32 @@
 ### 1.1 깃 계정 정보 설정
 
  - ```bash
+   // 1. 사용자 정보설정
    git confit --global user.name "kimmimi"
    git confit --global user.email "asdf@asdf.com"
    ```
-
    
+- ```bash
+  // 2. 편집기 설정(필수 사항은 아님)
+  $ git config --global core.editor emacs
+  
+  // 노트패드를 편집기로 쓴다면
+  // x86
+  $ git config --global core.editor "'C:/Program
+  Files/Notepad++/notepad++.exe' -multiInst -nosession"
+  // x64
+  $ git config --global core.editor "'C:/Program Files
+  (x86)/Notepad++/notepad++.exe' -multiInst -nosession"
+  ```
+
+  
+
+- ``` bash
+  // 설정내용의 확인
+  $ git config --list
+  ```
+
+  
 
 ## 2. 저장소 만들기
 
@@ -159,17 +180,19 @@ git branch -d [브랜치 이름]
 
 ## 5. 깃허브 협업
 
-## 6. 깃허브 이론
+## 6.  .gitignore
 
-- [(working directory = work tree)] - [스테이지] - [저장소]
+> 기본 규칙
+>
+>  - 아무것도 없는 라인이나, `#`로 시작하는 라인은 무시한다.
+> - 표준 Glob 패턴을 사용한다.
+> - 슬래시(/)로 시작하면 하위 디렉토리에 적용되지(Recursivity) 않는다.
+> - 디렉토리는 슬래시(/)를 끝에 사용하는 것으로 표현한다.
+> - 느낌표(!)로 시작하는 패턴의 파일은 무시하지 않는다.
 
-<img src="https://git-scm.com/book/en/v2/images/lifecycle.png" alt="파일의 라이프사이클." style="zoom: 67%;" />
-
-<img src="https://media.vlpt.us/images/janeljs/post/2654de26-d74b-4618-9a3c-96668a4e2a53/image.png" alt="Git의 기본 개념들 (1) (working directory, staging area, remote)" style="zoom: 67%;" />
 
 
 
-#### 6.1 스테이지와 커밋
 
 
 
