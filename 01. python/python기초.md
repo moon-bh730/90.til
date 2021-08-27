@@ -70,3 +70,37 @@ x=input()
 > 인수 할당시 해당 값을 제거한다.
 >
 > lstrip(), rstrip()
+
+## map()
+
+> 리스트의 형변환
+>
+> 동일한 기능인 List Comprehension 방법도 참고로 정리
+
+```python
+# map 기본형식
+$ originalList = ['2', '4', '6', '8', '10', '12']
+$ intList = list(map(int, originalList))
+$ print(intList)
+	[2, 4, 6, 8, 10, 12]
+
+ # comprehension 형식
+$ originalList = ['2', '4', '6', '8', '10', '12']
+$ intList = [int(x) for x in originalList]
+$ print(intList)
+	[2, 4, 6, 8, 10, 12]
+    
+ # 맵으로 입력 받기
+ a = map(int, input().split())
+    
+ # lambda 매핑
+for li in map(lambda x : x+1 , users):
+	print(li)
+    
+ # 일반 함수 매핑
+for name in map(convert_to_name, users):
+	print(name)
+   	# convert_to_name의 인자로 users의 요소가 넘어감.
+	# 각각의 요소에 대해 함수 진행 후 return
+```
+
