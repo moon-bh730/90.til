@@ -30,3 +30,39 @@ Shift + Alt + → , ←  		선택 영역 확장하기
 Shift + Alt + F 		도큐먼트 포맷화하기
 Ctrl + ↑or ↓  		스크롤 올리기 / 내리기 
 
+
+
+## 디버그 모드 사용하기
+
+> [ctrl + c] 활성화된 터미널은 종료한다!(충돌 발생 방지 차원)
+>
+> [F9] 해당위치에 브레이크 포인트 설정
+>
+> [F5] 계속/일시중지
+>
+> [F10] 단위실행
+>
+> [F11] 단계정보
+>
+> [shift+F11] 단계출력
+>
+> [ctrl+shift+F5] 다시시작
+>
+> [shift + F5] 디버그모드 종료
+>
+> 
+
+```python
+# launch.json 참고 사이트
+# https://demun.github.io/vscode-tutorial/debug/#launchjson
+# launch.json > configurations 에 추가
+{
+            "name": "Python: Current File (integrated)",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "stopOnEntry": true
+},
+```
+
