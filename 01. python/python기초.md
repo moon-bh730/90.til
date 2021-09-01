@@ -60,10 +60,59 @@ x=input()
 #### 1.3.3 list
 
 > 여러개의 값을 하나의 변수에 저장
->
 > []로 표시
->
 > 인덱스는 0부터 시작한다.
+
+##### 1.3.3.1 리스트 중복제거
+
+ 1. set 이용
+
+    ``` python
+    arr = [6, 5, 6, 4, 4, 1, 1, 2, 3, 9, 8, 7, 9, 8, 7] 
+    
+    result1 = set(arr) 
+    print(f"set(arr) : {result1}") 	#중복 제거와 순서변경
+    
+    result2 = list(result1) # list(set(arr)) 
+    print(f"list(set(arr) : {result2}")
+    ```
+
+    
+
+ 2. for 반복문
+
+    ```python
+    arr = [6, 5, 6, 4, 4, 1, 1, 2, 3, 9, 8, 7, 9, 8, 7] 
+    result = [] # 중복 제거된 값들이 들어갈 리스트 
+    for value in arr: 
+        if value not in result: 
+            result.append(value) 
+            
+    print(result)
+    ```
+
+    
+
+ 3. dictionary 이용
+
+    ```python
+    arr = [6, 5, 6, 4, 4, 1, 1, 2, 3, 9, 8, 7, 9, 8, 7] 
+    result1 = dict.fromkeys(arr) # 리스트 값들을 key 로 변경 
+    print(result1) 
+    
+    result2 = list(result1) # list(dict.fromkeys(arr)) 
+    print(result2)
+    ```
+
+    
+
+#### 1.3.4 tuple
+
+> 리스트와는 다르게 불변한다. 즉 튜플을 정의 한 후에 수정,삭제,추가 불가
+> 튜플은 리스트보다 더 적은 공간을 사용 
+> 실수로 튜플의 항목이 손상될일(삭제, 변경)이 없다.
+> 튜플을 딕셔너리의 키로 사용 할 수 있다. (딕셔너리 시간에)
+> 함수의 인자들은 튜플로 전달된다.
 
 
 
@@ -97,7 +146,13 @@ $ a
 	[1, 2]
 ```
 
+### join()
 
+>join 함수는 매개변수로 들어온 리스트에 있는 요소를 하나의 문자열로 합쳐서 반환하는 함수
+>
+>''.join(리스트)
+>
+>'구분자'.join(리스트)
 
 ### strip()
 
