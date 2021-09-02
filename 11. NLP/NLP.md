@@ -123,6 +123,120 @@
 
 ## 3.1. 토큰화(Tokenization)
 
+> 주어진 코퍼스(corpus)에서 토큰(token)이라 불리는 **의미 있는 단위로 나누는 작업**을 토큰화(tokenization)
+
+### 3.1.1. 단어 토큰화
+
+> 의미를 갖는 문자열, 단어, 단어구 등으로 나누는 일
+
+### 3.1.2. 토큰화 중 선택의 순간
+
+> 같은 의미의 다양한 표현의 어려움 -> 도구를 사용한다(NLTK-영어전용)
+> word_tokenize는 Don't를 Do와 n't로 분리
+> WordPunctTokenizer는 구두점을 별도로 분류
+> text_to_word_sequence 모든 알파벳을 소문자로 바꾸면서 마침표나 컴마, 느낌표 등의 구두점을 제거
+> 		don't나 jone's와 같은 경우 아포스트로피는 보존
+
+### 3.1.3. 토큰화 고려사항
+
+#### 3.1.3.1. 구두점이나 특수 문자를 단순 제외 불가
+
+> 마침표(.)와 같은 경우는 문장의 경계의미
+> m.p.h나 Ph.D나 AT&T 같은 의미를 갖는 약어
+> $45.55 같은 통화, 01/02/06은 날짜
+> 숫자3자리 쉼표등
+
+#### 3.1.3.2. 줄임말과 단어 내에 띄어쓰기가 있는 경우
+
+> what're는 what are의 줄임말이며, we're는 we are의 줄임말 등
+> New York이라는 단어나 rock 'n' roll (하나의 단어에 띄어쓰기존재)
+> 토큰화는 모두 단어로 하나로 인식할 수 있는 능력필요
+
+#### 3.1.3.3. 표준 토큰화 예제
+
+```python
+$ from nltk.tokenize import TreebankWordTokenizer
+$ tokenizer=TreebankWordTokenizer()
+$ text="Starting a home-based restaurant may be an ideal. it doesn't have a food chain or restaurant of their own."
+$ print(tokenizer.tokenize(text))
+
+	['Starting', 'a', 'home-based', 'restaurant', 'may', 'be', 'an', 'ideal.', 'it', 'does', "n't", 'have', 'a', 'food', 	
+     'chain', 'or', 'restaurant', 'of', 'their', 'own', '.'] 
+```
+
+
+
+### 3.1.4. 문장 토큰화(Sentence Tokenization)
+
+> 토큰의 단위가 문장(sentence)일 때
+> 신뢰성 있는 구분 기준이 필요하다! 
+> 	NLTK에서는 영어 문장의 토큰화를 수행하는 sent_tokenize를 지원
+> 	한국어는 KSS(Korean Sentence Splitter)
+
+### 3.1.5. 이진 분류기(Binary Classifier)
+
+>- 예외 사항을 발생시키는 마침표의 처리를 위해서 입력에 따라 두 개의 클래스로 분류하는 이진 분류기(binary classifier)를 사용
+>	- 마침표(.)가 단어의 일부분일 경우. 즉, 마침표가 약어(abbreivation)로 쓰이는 경우
+>	- 마침표(.)가 정말로 문장의 구분자(boundary)일 경우를 의미할 것입니다.
+>- 이진 분류기 구현에서 약어 사전(abbreviation dictionary)이용
+>- 오픈소스로 NLTK, OpenNLP, 스탠포드 CoreNLP, splitta, LingPipe 등이 있다
+
+### 3.1.6. 한국어 토큰화의 어려움
+
+> 한국어는 영어와는 달리 띄어쓰기만으로는 토큰화를 하기에 부족
+> 조사의 분리 -> 형태소 토큰화
+
+#### 3.1.6.1. 한국어는 교착어
+
+> 같은 단어임에도 서로 다른 조사가 붙어서 다른 단어로 인식
+> 대부분의 한국어 NLP에서 조사는 분리
+
+ - 자립 형태소 : 접사, 어미, 조사와 상관없이 자립하여 사용할 수 있는 형태소. 그 자체로 단어가 된다. 		
+
+   ​						체언(명사, 대명사, 수사), 수식언(관형사, 부사), 감탄사 등이 있다
+
+ - 의존 형태소 : 다른 형태소와 결합하여 사용되는 형태소. 접사, 어미, 조사, 어간를 말한다.
+
+#### 3.1.6.2. 한국어는 띄어쓰기가 영어에비해 지켜지지 않는다.
+
+### 3.1.7. 품사태깅(Part-of-speech tagging)
+
+> 단어의 의미를 제대로 파악하기 위해서는 해당 단어가 어떤 품사로 쓰였는지 보는 것이 주요 지표가 될 수 있다.
+> 단어 토큰화 과정에서 각 단어가 어떤 품사로 쓰였는지를 구분하는 작업을 작업을 품사 태깅(part-of-speech tagging)이라 한다.
+
+### 3.1.8. 실습(NLTK, KoNLPY)
+
+```python
+$ from nltk.tokenize import word_tokenize
+$ text="I am actively looking for Ph.D. students. and you are a Ph.D. student."
+
+$ from nltk.tag import pos_tag
+$ x=word_tokenize(text)
+$ pos_tag(x)
+
+	[('I', 'PRP'), ('am', 'VBP'), ('actively', 'RB'), ('looking', 'VBG'), ('for', 'IN'), ('Ph.D.', 'NNP'), ('students', 'NNS'), 	('.', '.'), ('and', 'CC'), ('you', 'PRP'), ('are', 'VBP'), ('a', 'DT'), ('Ph.D.', 'NNP'), ('student', 'NN'), ('.', '.')]
+    
+# PRP는 인칭 대명사, VBP는 동사, RB는 부사, VBG는 현재부사, IN은 전치사, NNP는 고유 명사, NNS는 복수형 명사, CC는 접속사, DT는 관사
+```
+
+```python
+# 한국어 자연어 처리는 KoNLPy("코엔엘파이"라고 읽습니다)라는 파이썬 패키지를 사용
+# KoNLPy 형태소 분석기로 Okt(Open Korea Text), 메캅(Mecab), 코모란(Komoran), 한나눔(Hannanum), 꼬꼬마(Kkma)가 있습니다.
+$ from konlpy.tag import Okt  
+$ okt=Okt()  
+$ print(okt.morphs("열심히 코딩한 당신, 연휴에는 여행을 가봐요"))		#morphs : 형태소 추출
+$ print(okt.pos("열심히 코딩한 당신, 연휴에는 여행을 가봐요"))  		#pos : 품사 태깅(Part-of-speech tagging)
+$ print(okt.nouns("열심히 코딩한 당신, 연휴에는 여행을 가봐요"))  	#nouns : 명사 추출
+
+$ from konlpy.tag import Kkma  
+$ kkma=Kkma()  
+$ print(kkma.morphs("열심히 코딩한 당신, 연휴에는 여행을 가봐요"))
+$ print(kkma.pos("열심히 코딩한 당신, 연휴에는 여행을 가봐요"))  
+$ print(kkma.nouns("열심히 코딩한 당신, 연휴에는 여행을 가봐요"))  
+```
+
+
+
 ## 3.2. 정제(Cleaning) and 정규화(Normalization)
 
 ## 3.3. 어간 추출(Stemming) and 표제어 추출(Lemmatization)
@@ -143,8 +257,14 @@
 
 ### 3.8.1. 원핫 인코딩
 
-> 1) 단어별 고유 인덱스 부여
-> 2) 표현할단어에 1, 다른단어는 0 부여
+> - 가변수(dummy variable)로 만든다, 이는 0과 1로만 이루어진 열로 만드는 것
+>
+> - 작업 단계
+>
+>   1) 단어별 고유 인덱스 부여
+>   2) 표현할단어에 1, 다른단어는 0 부여
+>
+>   
 
 ```python
 # 1. 단어 분할
