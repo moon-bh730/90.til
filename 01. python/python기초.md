@@ -114,6 +114,45 @@ x=input()
 > 튜플을 딕셔너리의 키로 사용 할 수 있다. (딕셔너리 시간에)
 > 함수의 인자들은 튜플로 전달된다.
 
+### 1.2. 리스트 내포
+
+```python
+# 기본 형식
+# 리스트 변수 = [표현식 for 변수 in 반복 가능한 대상]
+
+# meter_list의 요소들을 for문을 돌면서 각각 100*i 연산을 시켜서 centi_meter_list에 저장
+$ meter_list = [3, 7, 9, 10] 
+$ centi_meter_list = [100*i for i in meter_list]
+
+# 리스트 내포를 활용한 리스트 원소 제곱
+$ meter_square_list = [i*i for i in meter_list]
+
+# 리스트 내포에 조건 추가
+# 리스트 명 = [표현식 for 변수 in 반복 가능한 대상 if 조건문]
+
+# 리스트 내포를 활용한 홀수원소 단위 변환 (m -> cm)
+$ centi_meter_list = [100*i for i in meter_list if i%2 != 0] 
+
+# 리스트 내포를 활용한 이중 for문
+# 1부터 10까지의 구구단을 출력하는 for문
+$ result = [] 
+$ for x in range(1, 10):     
+$ 	for y in range(1, 10):
+$ 		result.append(x * y)  
+#-----------------------------------------
+$ result = [x * y for x in range(1, 10) for y in range(1, 10)] 	# 바깥쪽의 for문이 앞쪽으로, 안쪽의 for문이 뒤쪽으로 가는 구조
+#-----------------------------------------
+
+$ result = [] 
+$ for x in range(1, 10): 
+$ 	if x%2 == 0: 		#짝수단만 처리
+$ 		for y in range(1, 10): 
+$ 			result.append(x * y) 
+#-----------------------------------------
+$ result = [x * y for x in range(1, 10) if x%2 == 0 for y in range(1, 10)] 		# 바깥쪽에 있는 for문 if문 순서대로 앞쪽으로 간다
+#-----------------------------------------
+```
+
 
 
 ## 99 함수
