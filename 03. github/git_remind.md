@@ -178,7 +178,21 @@ git branch -d [브랜치 이름]
 
 ## 4. 깃허브 백업관리
 
+> 
+
+
+
 ## 5. 깃허브 협업
+
+### 5.1. 과거 특정 시점으로 되돌리기
+
+> git checkout [commitID]
+> 돌아간 이후에도 작업했던 내역은 모두 볼 수 있다
+> git log --all 또는 git log --all --oneline
+
+### 5.2. 되돌린작업(checkout )을 취소할때
+
+> git checkout master
 
 ## 6.  .gitignore
 
@@ -192,12 +206,10 @@ git branch -d [브랜치 이름]
 
 
 
-
-
-
-
 ## 99. 기타
 
 1) 웹에서 파일 다운받기
 
    >  ***Raw*** 버튼을 누르고 열린 화면에서 윈도우 [Ctrl+S], 맥 [Cmd+S]
+   
+2) VisualStudio Code에서 Git Graph애드온은 Branch를 모두 보이도록 하고 관리가 가능하다.(막연하던게 눈에 보여서 이해가 쉽도록 해준다.)
